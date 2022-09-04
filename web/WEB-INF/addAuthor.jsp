@@ -1,0 +1,27 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Toshiba
+  Date: 04.09.2022
+  Time: 14:52
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Add Author</title>
+</head>
+<body>
+<h1> Please input author`s data:</h1>
+<form action="/authors/add" method="post">
+    <input type="text" name="name" placeholder="Please input author name"/><br>
+    <input type="text" name="surname" placeholder="Please input author surname"/><br>
+    <input type="text" name="email" placeholder="Please input author email"/><br>
+    <input type="number" name="age" placeholder="Please input author age"><br>
+
+    <input type="submit" value="ADD">
+
+</form>
+
+
+</body>
+</html>
