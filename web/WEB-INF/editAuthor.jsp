@@ -19,12 +19,14 @@
 %>
 
 <h1> Please edit author`s data:</h1>
-<form action="/authors/edit" method="post">
+<a href="/homePage">Home</a>
+<form action="/authors/edit" method="post"enctype="multipart/form-data">
     <input type="hidden" name="authorId" value="<%=author.getId()%>"/>
     <input type="text" name="name" value="<%=author.getName()%>"/><br>
     <input type="text" name="surname" value="<%=author.getSurname()%>"/><br>
     <input type="text" name="email" value="<%=author.getEmail()%>"/><br>
     <input type="number" name="age" value="<%=author.getAge()%>"/><br>
+    <input type="file" name="authorPic" value="<%=author.getAuthorPic()%>">
 
     <input type="submit" value="UpDate">
 

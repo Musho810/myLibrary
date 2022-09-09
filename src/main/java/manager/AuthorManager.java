@@ -13,7 +13,7 @@ public class AuthorManager {
 
 
     public void add(Author author) {
-        String sql = "Insert into author (name,surname,email,age) Values (?,?,?,?)";
+        String sql = "Insert into author (name,surname,email,age,author_pic) Values (?,?,?,?,?)";
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -21,7 +21,7 @@ public class AuthorManager {
             ps.setString(2, author.getSurname());
             ps.setString(3, author.getEmail());
             ps.setInt(4, author.getAge());
-
+            ps.setString(5, author.getAuthorPic());
             ps.executeUpdate();
 
             ResultSet resultSet = ps.getGeneratedKeys();
@@ -73,6 +73,7 @@ public class AuthorManager {
                 .surname((resultSet.getString("surname")))
                 .email((resultSet.getString("email")))
                 .age((resultSet.getInt("age")))
+                .authorPic(resultSet.getString("author_pic"))
                 .build();
 
 
@@ -93,7 +94,7 @@ public class AuthorManager {
 
 
       public void edit(Author author) {
-        String sql = "update author set name=?,surname=?,email=?,age=? where  id="+ author.getId();
+        String sql = "update author set name=?,surname=?,email=?,age=?,author_pic=? where  id=?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -102,7 +103,8 @@ public class AuthorManager {
             ps.setString(2, author.getSurname());
             ps.setString(3, author.getEmail());
             ps.setInt(4, author.getAge());
-
+            ps.setString(5,author.getAuthorPic());
+            ps.setInt(6, author.getId());
             ps.executeUpdate();
 
 

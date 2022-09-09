@@ -21,7 +21,8 @@
 %>
 
 <h1> Please edit book`s data:</h1>
-<form action="/books/edit" method="post">
+<a href="/homePage">Home</a>
+<form action="/books/edit" method="post" enctype="multipart/form-data">
     <input type="hidden" name="bookId" value="<%=book.getId()%>"/>
     <input type="text" name="title" value="<%=book.getTitle()%>"/><br>
     <input type="text" name="description" value="<%=book.getDescription()%>"/><br>
@@ -46,6 +47,7 @@
         %>
 
     </select> <br>
+    <input type="file" name="bookPic" value="<%=book.getBookPic()%>"/><br>
     <input type="submit" value="Update">
 
 </form>

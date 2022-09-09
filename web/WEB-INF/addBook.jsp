@@ -17,7 +17,8 @@
 %>
 
 <h1> Please input book`s data:</h1>
-<form action="/books/add" method="post">
+<a href="/homePage">Home</a>
+<form action="/books/add" method="post" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Please input book title"/><br>
     <input type="text" name="description" placeholder="Please input book description"/><br>
     <input type="number" name="price" placeholder="Please input book price"/><br>
@@ -30,6 +31,8 @@
             }
         %>
     </select> <br>
+    Book cover picture <br>
+    <input type="file" name="bookPic"><br>
     <input type="submit" value="ADD">
 
 </form>

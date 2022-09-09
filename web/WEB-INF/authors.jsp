@@ -18,9 +18,11 @@
     List<Author> authorList = (List<Author>) request.getAttribute("authors");
 
 %>
+<a href="/homePage">Home</a>
 <table border="1">
     <tr>
         <th> id</th>
+        <th> Image</th>
         <th> name</th>
         <th> surname</th>
         <th> email</th>
@@ -32,6 +34,13 @@
     %>
     <tr>
         <td><%=author.getId()%>
+        </td>
+        <td>
+            <% if (author.getAuthorPic()==null || author.getAuthorPic().length()==0) { %>
+            <img src="/images/defaultAuthorPic.jpg" width="50">
+            <% } else { %>
+            <img src="/getAuthorImage?authorPic=<%=author.getAuthorPic()%>" width="50">
+            <% } %>
         </td>
         <td><%=author.getName()%>
         </td>

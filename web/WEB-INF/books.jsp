@@ -16,10 +16,12 @@
 <%
     List<Book> bookList = (List<Book>) request.getAttribute("books");
 %>
+<a href="/homePage">Home</a>
 <table border="1">
     <tr>
         <th> id</th>
-        <th> tittle</th>
+        <th>Image</th>
+        <th> title</th>
         <th> description</th>
         <th> price</th>
         <th> author name and surname</th>
@@ -29,6 +31,13 @@
     %>
     <tr>
         <td><%=book.getId()%>
+        </td>
+        <td>
+            <% if (book.getBookPic()==null || book.getBookPic().length()==0) { %>
+            <img src="/images/bookdefaultpicure.jpg" width="50">
+            <% } else { %>
+            <img src="/getBookImage?bookPic=<%=book.getBookPic()%>" width="50">
+            <% } %>
         </td>
         <td><%=book.getTitle()%>
         </td>
