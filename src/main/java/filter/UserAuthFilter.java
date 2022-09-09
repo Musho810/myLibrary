@@ -9,8 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+@WebFilter(urlPatterns = {"/homePage","/books/*","/authors/*"})
 
-@WebFilter(urlPatterns = {"/homePage","/books","/books/add","/authors","/authors/add"})
 public class UserAuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
